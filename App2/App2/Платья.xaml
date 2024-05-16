@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:App2"
+             x:Class="App2.Платья">
+    <ContentPage.Content>
+        <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+              
+                <StackLayout Grid.Row="0" Background="{StaticResource BackgroundGradient}" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Cherri" BackgroundColor="Transparent" FontAttributes="Bold" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="・" FontSize="Large" TextColor="#850000" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Margin="-25, 0, 0, 20"/>
+                <Button ImageSource="user_3488374.png" Margin="5" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="3" HorizontalOptions="End"/>
+                    <Button ImageSource="web_14363790.png" Margin="5" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="4" HorizontalOptions="End" Clicked="Button_Clicked_2"/>
+                    <Button ImageSource="card_5962078.png" Margin="5" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="5" HorizontalOptions="End" Clicked="Button_Clicked_1" />
+                </Grid>
+
+                <ScrollView Grid.Row="1">
+                    <StackLayout>
+                        <AbsoluteLayout InputTransparent="false">
+                            <CarouselView x:Name="carouselView1" HeightRequest="450" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                                <CarouselView.GestureRecognizers>
+                                    <SwipeGestureRecognizer Swiped="OnSwiped" Direction="Left" />
+                                    <SwipeGestureRecognizer Swiped="OnSwiped" Direction="Right" />
+                                </CarouselView.GestureRecognizers>
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding .}" Aspect="AspectFill" HeightRequest="50" WidthRequest="{Binding Source={x:Reference carouselView1}, Path=Width}" />
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+                            <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0.95, 0.98, 0.5, 0.015" AbsoluteLayout.LayoutFlags="All" x:Name="IndicatorsStackLayout">
+                                <Button WidthRequest="7" HeightRequest="7" CornerRadius="5" />
+                                <Button WidthRequest="7" HeightRequest="7"  CornerRadius="5"  />
+                            </StackLayout>
+                        <Button x:Name="heartButton" WidthRequest="50" HeightRequest="50" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="1, 0, 0.1, 0.1" AbsoluteLayout.LayoutFlags="All" Clicked="Button_Clicked">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference heartButton}, Path=IsPressed}" Value="True">
+                                    <Setter Property="ImageSource" Value="web_14363790red.png" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference heartButton}, Path=IsPressed}" Value="False">
+                                    <Setter Property="ImageSource" Value="web_14363790.png" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                    </AbsoluteLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label  x:Name="labelDressName" Grid.Row="0" Grid.Column="0" Margin="5, 0, 0, 0"  FontSize="14" FontFamily="Bookmanbtt"/>
+                        <Label x:Name="labelDress" Grid.Row="0" Grid.Column="1"  FontAttributes="Bold" FontFamily="Bookmanbtt" FontSize="14" />
+                        <Button Text="˅" TextColor="#850000"  FontSize="15" x:Name="ToggleInfoVisibility" Clicked="ToggleInfoVisibility_Clicked"  Grid.Column="1" Grid.Row="0" HorizontalOptions="End" BackgroundColor="Transparent" Margin="0, -220, -55, 0"/>
+                        <AbsoluteLayout  Grid.Row="0" Grid.Column="1" HorizontalOptions="End">
+                            <Label x:Name="InfoLabel"  HorizontalTextAlignment="Center" Text="Возвращение бестселлера -  найдена &#10; идеальная база для создания женственных &#10; и многослойных образов. Наша классическая &#10; модель — платье приталенного силуэта с &#10; глубоким квадратным вырезом, &#10; рукавами-фонариками и пышной юбкой &#10; со сборкой. &#10; " 
+                                   IsVisible="False" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds="0.1, 0.1, 0.5, 0.7" BackgroundColor="#eeeeee" Opacity="0.8" TextColor="Black" Margin="0, 25, -160, 0" />
+                        </AbsoluteLayout>
+                        <Label x:Name="labelSize" Grid.Row="1" Grid.Column="1" FontFamily="Bookmanbtt" IsVisible="True" FontSize="17" FontAttributes="Bold" HorizontalOptions="End"  Margin="0, -220, 80, 0" />
+                        <Label x:Name="labelPrice" Grid.Row="1" Grid.Column="1" FontFamily="Bookmanbtt" IsVisible="True"  FontSize="18" FontAttributes="Bold" HorizontalOptions="End"  Margin="0, -220, -15, 0"/>
+                        <StackLayout Orientation="Horizontal"  Grid.Row="1" Grid.Column="1" HorizontalOptions="Start"  Margin="-90, -210, 0, 0" >
+                            <Button x:Name="DecreaseButton" BackgroundColor="Transparent" Margin="0, -200, -45, 0" Text="-" Clicked="DecreaseButton_Clicked"/>
+                            <local:Custom x:Name="entry" Margin="0, -200, -3, 0" VerticalOptions="Center" />
+                            <Button x:Name="IncreaseButton" BackgroundColor="Transparent" Margin="-40, -200, 0, 0" Text="+" Clicked="IncreaseButton_Clicked" />
+                        </StackLayout>
+                    </Grid>
+                    <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0" Background="{StaticResource BackgroundGradients}" />
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Button Text="Cherri" BackgroundColor="Transparent"  FontAttributes="Bold" FontSize="20" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="・" FontSize="Large" TextColor="#850000" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Margin="-25, 0, 0, 20"/>
+                                <Label Text="8 (800) 555-35-35 " FontSize="16"  BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" Padding="5"/>
+                                <Label Text="Работаем с 10:00 до 22:00 " FontSize="16"  BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" Margin="0, 20, 0, 0" Padding="5"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="vk" ImageSource="Icons.png" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="4" Margin="0, 45, 0, 0" HorizontalOptions="End" Clicked="vk_Clicked" />
+                                <Button x:Name="teleg" ImageSource="Icons1.png"  Margin="0, 45, 0, 0" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="5" HorizontalOptions="End" Clicked="teleg_Clicked"/>
+                                <Button x:Name="insta" ImageSource="Icons2.png"  Margin="0, 45, 0, 0" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="6" HorizontalOptions="End" Clicked="insta_Clicked"/>
+                                <Button  x:Name="pin" ImageSource="Icons3.png"  Margin="0, 45, 0, 0" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="7" HorizontalOptions="End" Clicked="pin_Clicked"/>
+                            </Grid>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

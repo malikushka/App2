@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Offset="0" Color="Transparent" />
+                <GradientStop Offset="1" Color="Gray" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="BackgroundGradients" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Offset="0" Color="Transparent" />
+                <GradientStop Offset="0.095" Color="Gray" />
+                <GradientStop Offset="1"  Color="Transparent" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
